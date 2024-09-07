@@ -1,17 +1,17 @@
 export const mainConfig = () => ({
   app: {
-    port: parseInt(process.env.APP_PORT) || 3000,
+    port: parseInt(process.env.APP_PORT) || 3001,
     cors: {
-      origin: process.env.APP_CORS_ORIGIN || 'http://localhost:3001',
+      origin: process.env.APP_CORS_ORIGIN || 'https://kpd.study.ivanjsx.com',
     },
   },
   database: {
-    host: process.env.DATABASE_HOST || 'localhost',
-    port: parseInt(process.env.DATABASE_PORT) || 5432,
-    name: process.env.DATABASE_NAME || 'kupipodariday',
-    schema: process.env.DATABASE_SCHEMA || 'kupipodariday',
-    username: process.env.DATABASE_USERNAME || 'student',
-    password: process.env.DATABASE_PASSWORD || 'student',
+    username: process.env.POSTGRES_USER || 'student',
+    password: process.env.POSTGRES_PASSWORD || 'student',
+    name: process.env.POSTGRES_DB || 'kupipodariday',
+    schema: process.env.POSTGRES_SCHEMA || 'kupipodariday',
+    host: process.env.POSTGRES_HOST || 'postgres',
+    port: parseInt(process.env.POSTGRES_PORT) || 5432,
   },
   jwt: {
     ttl: process.env.JWT_TTL || '10h',

@@ -34,7 +34,8 @@ export default [
       sourceType: 'module',
       parserOptions: {
         project: 'tsconfig.json',
-        tsconfigRootDir: '/Users/justicewisdom/dev/kupipodariday-backend',
+        tsconfigRootDir:
+          '/Users/justicewisdom/dev/web-plus-docker-and-compose/backend',
       },
     },
     rules: {

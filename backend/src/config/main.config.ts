@@ -2,7 +2,7 @@ export const mainConfig = () => ({
   app: {
     port: parseInt(process.env.APP_PORT) || 3001,
     cors: {
-      origin: process.env.APP_CORS_ORIGIN || 'https://kpd.study.ivanjsx.com',
+      origin: process.env.APP_CORS_ORIGIN || 'http://localhost:8081',
     },
   },
   database: {

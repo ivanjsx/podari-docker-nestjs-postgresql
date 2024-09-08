@@ -1,0 +1,12 @@
+# compiled output
+build
+
+# dependencies
+node_modules
+
+# version history
+.git
+.gitignore
+
+# miscellaneous
+.DS_Store

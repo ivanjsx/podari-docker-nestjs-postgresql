@@ -1,0 +1,25 @@
+# compiled output
+dist
+
+# dependencies
+node_modules
+
+# environment
+.env
+.env.example
+
+# version history
+.git
+.gitignore
+
+# formatting
+.prettierrc
+
+# linting
+eslint.config.mjs
+
+# framework
+nest-cli.json
+
+# miscellaneous
+.DS_Store

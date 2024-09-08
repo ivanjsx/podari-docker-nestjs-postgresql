@@ -1,0 +1,68 @@
+name: kpd
+
+services:
+  
+  postgres:
+    image: postgres:16-alpine
+    container_name: kpd_postgres
+    restart: always
+    env_file: backend/.env
+    networks:
+      - internal
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      timeout: 60s
+      interval: 5s
+      retries: 12      
+  
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: kpd_backend:latest
+    container_name: kpd_backend
+    restart: always
+    env_file: backend/.env
+    depends_on:
+      postgres:
+        restart: true
+        condition: service_healthy
+    networks:
+      - internal
+    ports:
+      - name: web
+        host_ip: 127.0.0.1
+        published: "4000"
+        target: 3001
+  
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    image: kpd_frontend:latest
+    container_name: kpd_frontend
+    restart: always
+    networks:
+      - external
+    ports:
+      - name: web
+        host_ip: 127.0.0.1
+        published: "8081"
+        target: 80
+
+networks:
+  
+  internal:
+    name: kpd_internal
+    driver: bridge
+  
+  external:
+    name: kpd_external
+    driver: bridge
+
+volumes:
+  
+  pg_data:
+    name: kpd_pg_data

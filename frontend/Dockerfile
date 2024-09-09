@@ -12,7 +12,7 @@ RUN npm run build
 
 
 
-FROM nginx:alpine AS runner
+FROM nginx:latest AS runner
 
 WORKDIR /app
 

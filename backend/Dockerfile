@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --silent --no-optional
+RUN npm i -g npm@latest && npm ci --silent --no-optional
 
 COPY . .
 
@@ -18,7 +18,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --production --silent --no-optional && npm i -g pm2@latest
+RUN npm i -g npm@latest pm2@latest && npm ci --production --silent --no-optional
 
 COPY --from=builder /app/dist ./dist
 

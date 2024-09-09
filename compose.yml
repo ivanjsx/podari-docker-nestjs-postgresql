@@ -6,7 +6,7 @@ services:
     image: postgres:16-alpine
     container_name: kpd_postgres
     restart: always
-    env_file: backend/.env
+    env_file: .env
     networks:
       - internal
     volumes:
@@ -24,7 +24,7 @@ services:
     image: kpd_backend:latest
     container_name: kpd_backend
     restart: always
-    env_file: backend/.env
+    env_file: .env
     depends_on:
       postgres:
         condition: service_healthy

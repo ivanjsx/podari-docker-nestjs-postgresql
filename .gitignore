@@ -1,2 +1,5 @@
-# misc
+# environment
+.env
+
+# miscellaneous
 .DS_Store

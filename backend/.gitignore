@@ -4,8 +4,5 @@ node_modules
 # compiled output
 dist
 
-# environment
-.env
-
-# misc
+# miscellaneous
 .DS_Store

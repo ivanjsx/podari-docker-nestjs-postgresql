@@ -1,14 +1,20 @@
-name: kpd
+name: podari
+
+networks:
+  default:
+    name: podari-default
+
+volumes:  
+  pg_data:
+    name: podari-pg-data
 
 services:
   
   postgres:
     image: postgres:16-alpine
-    container_name: kpd_postgres
+    container_name: podari-postgres
     restart: always
     env_file: .env
-    networks:
-      - internal
     volumes:
       - pg_data:/var/lib/postgresql/data
     healthcheck:
@@ -21,16 +27,15 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
-    image: kpd_backend:latest
-    container_name: kpd_backend
+    pull_policy: build
+    image: ivanjsx/podari-backend:latest
+    container_name: podari-backend
     restart: always
     env_file: .env
     depends_on:
       postgres:
         restart: true
         condition: service_healthy
-    networks:
-      - internal
     ports:
       - name: web
         host_ip: 127.0.0.1
@@ -41,28 +46,12 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    image: kpd_frontend:latest
-    container_name: kpd_frontend
+    pull_policy: build
+    image: ivanjsx/podari-frontend:latest
+    container_name: podari-frontend
     restart: always
-    networks:
-      - external
     ports:
       - name: web
         host_ip: 127.0.0.1
         published: "8081"
         target: 80
-
-networks:
-  
-  internal:
-    name: kpd_internal
-    driver: bridge
-  
-  external:
-    name: kpd_external
-    driver: bridge
-
-volumes:
-  
-  pg_data:
-    name: kpd_pg_data

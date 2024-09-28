@@ -1,0 +1,49 @@
+name: podari
+
+networks:
+  default:
+    name: podari-default
+
+volumes:  
+  pg_data:
+    name: podari-pg-data-production
+
+services:
+  
+  postgres:
+    image: postgres:16-alpine
+    container_name: podari-postgres
+    restart: always
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      timeout: 60s
+      interval: 5s
+      retries: 12      
+  
+  backend:
+    image: ivanjsx/podari-backend:latest
+    container_name: podari-backend
+    restart: always
+    env_file: .env
+    depends_on:
+      postgres:
+        restart: true
+        condition: service_healthy
+    ports:
+      - name: web
+        host_ip: 127.0.0.1
+        published: "4000"
+        target: 3001
+  
+  frontend:
+    image: ivanjsx/podari-frontend:latest
+    container_name: podari-frontend
+    restart: always
+    ports:
+      - name: web
+        host_ip: 127.0.0.1
+        published: "8081"
+        target: 80

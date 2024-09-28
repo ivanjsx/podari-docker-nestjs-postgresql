@@ -1,4 +1,4 @@
-export const URL = "https://api.kpd.study.ivanjsx.com";
+export const URL = "https://api.podari.ivanjsx.com";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;

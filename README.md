@@ -8,9 +8,9 @@ In this app, each registered user can share what gift they would like to receive
 
 ## See It In Action
 
-Frontend: [kpd.study.ivanjsx.com](https://kpd.study.ivanjsx.com)
+Frontend: [podari.ivanjsx.com](https://podari.ivanjsx.com)
 
-Backend: [api.kpd.study.ivanjsx.com](https://api.kpd.study.ivanjsx.com)
+Backend: [api.podari.ivanjsx.com](https://api.podari.ivanjsx.com)
 
 ## My Role In It
 

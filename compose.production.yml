@@ -4,7 +4,7 @@ networks:
   default:
     name: podari-default
 
-volumes:  
+volumes:
   pg_data:
     name: podari-pg-data-production
 
@@ -21,11 +21,12 @@ services:
       test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
       timeout: 60s
       interval: 5s
-      retries: 12      
+      retries: 12
   
   backend:
     image: ivanjsx/podari-backend:latest
     container_name: podari-backend
+    platform: "linux/amd64"
     restart: always
     env_file: .env
     depends_on:
@@ -41,6 +42,7 @@ services:
   frontend:
     image: ivanjsx/podari-frontend:latest
     container_name: podari-frontend
+    platform: "linux/amd64"
     restart: always
     ports:
       - name: web

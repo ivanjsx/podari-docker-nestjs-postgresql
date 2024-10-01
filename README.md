@@ -8,9 +8,9 @@ In this app, each registered user can share the gift they would like to receive 
 
 ## See It In Action
 
-Frontend: [podari.ivanjsx.com](https://podari.ivanjsx.com)
+The frontend is optimized for viewing in the **desktop version** of your preferred browser at [podari.ivanjsx.com](https://podari.ivanjsx.com).
 
-Backend: [api.podari.ivanjsx.com](https://api.podari.ivanjsx.com)
+The backend is accessible at [api.podari.ivanjsx.com](https://api.podari.ivanjsx.com).
 
 ## My Role In It
 
@@ -18,7 +18,7 @@ I was responsible for **backend (API) development** and **deployment of both fro
 
 The history of this repository focuses primarily on the deployment process, though it contains the full source code of the app.
 
-The history of backend development can be found in a [separate repository](https://github.com/ivanjsx/kupipodariday-api-nestjs). You are welcome to check it out.
+The history of backend development can be found in a [separate repository](https://github.com/ivanjsx/podari-api-nestjs-jwt-auth). You are welcome to check it out.
 
 Frontend development was completed by another team member and provided to me in a [repository that I forked](https://github.com/yandex-praktikum/kupipodariday-frontend) and used as a submodule in this project.
 

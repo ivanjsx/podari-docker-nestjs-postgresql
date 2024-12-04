@@ -42,8 +42,8 @@ services:
     ports:
       - name: web
         host_ip: 127.0.0.1
-        published: "4000"
-        target: 3001
+        published: "3006"
+        target: 3006
   
   frontend:
     build:
@@ -59,5 +59,5 @@ services:
     ports:
       - name: web
         host_ip: 127.0.0.1
-        published: "8081"
+        published: "3005"
         target: 80

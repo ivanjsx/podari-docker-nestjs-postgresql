@@ -1,6 +1,6 @@
 export const mainConfig = () => ({
   app: {
-    port: parseInt(process.env.APP_PORT) || 3001,
+    port: parseInt(process.env.APP_PORT) || 3006,
     cors: {
       origin: process.env.APP_CORS_ORIGIN || 'https://podari.ivanjsx.com',
     },
